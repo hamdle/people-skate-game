@@ -47,7 +47,8 @@ position = Vector2(-349.5, -33.5)
 shape = SubResource("RectangleShape2D_ay8y8")
 
 [node name="Platform3" type="StaticBody2D" parent="."]
-position = Vector2(1267, 379)
+position = Vector2(1225, 476)
+rotation = 0.198605
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Platform3"]
 modulate = Color(0.41598, 0.41598, 0.41598, 1)
@@ -60,7 +61,8 @@ position = Vector2(-349.5, -33.5)
 shape = SubResource("RectangleShape2D_ay8y8")
 
 [node name="Platform4" type="StaticBody2D" parent="."]
-position = Vector2(1572, 379)
+position = Vector2(1484, 485)
+rotation = -0.190079
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Platform4"]
 modulate = Color(0.41598, 0.41598, 0.41598, 1)
@@ -73,7 +75,7 @@ position = Vector2(-349.5, -33.5)
 shape = SubResource("RectangleShape2D_ay8y8")
 
 [node name="Platform5" type="StaticBody2D" parent="."]
-position = Vector2(1971, 199)
+position = Vector2(1246, 665)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Platform5"]
 modulate = Color(0.41598, 0.41598, 0.41598, 1)
@@ -89,10 +91,10 @@ shape = SubResource("RectangleShape2D_ay8y8")
 position = Vector2(20, 80)
 
 [node name="Box2" parent="." instance=ExtResource("2_qbetw")]
-position = Vector2(22, -99)
+position = Vector2(-70, 196)
 
 [node name="Box3" parent="." instance=ExtResource("2_qbetw")]
-position = Vector2(147, -105)
+position = Vector2(731, 542)
 
 [node name="Box4" parent="." instance=ExtResource("2_qbetw")]
 position = Vector2(263, -99)
@@ -111,7 +113,7 @@ texture = ExtResource("3_vg7vy")
 shape = SubResource("RectangleShape2D_igh1e")
 
 [node name="RigidBox2" type="RigidBody2D" parent="."]
-position = Vector2(166, -18)
+position = Vector2(1156, 435)
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBox2"]
 scale = Vector2(0.25, 0.25)

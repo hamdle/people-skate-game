@@ -11,8 +11,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var ap = $AnimationPlayer
 @onready var sprite = $Sprite2D
 @onready var cshape = $CollisionShape2D
-@onready var crouch_raycast_1 = $CrouchRaycast_1
-@onready var crouch_raycast_2 = $CrouchRaycast_2
+@onready var crouch_raycast_1 = $CrouchRayCast2D_1
+@onready var crouch_raycast_2 = $CrouchRayCast2D_2
+@onready var rotation_raycast = $RotationRayCast2D
 @onready var coyote_timer = $CoyoteTimer
 @onready var jump_buffer_timer = $JumpBufferTimer
 @onready var jump_height_timer = $JumpHeightTimer
@@ -67,6 +68,18 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
+	# Character rotation
+	if rotation_raycast.is_colliding():
+		var normal = rotation_raycast.get_collision_normal()
+		var degree = rad_to_deg(normal.angle()) + 90
+		if abs(degree) < 50:
+			rotation_degrees = degree
+		else:
+			print(degree)
+	else:
+		rotation = 0
+	
+	# Object collision
 	for i in get_slide_collision_count():
 		var c = get_slide_collision(i)
 		if c.get_collider() is RigidBody2D:

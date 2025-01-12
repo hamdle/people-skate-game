@@ -405,11 +405,11 @@ libraries = {
 }
 autoplay = "idle"
 
-[node name="CrouchRayCast2D_1" type="RayCast2D" parent="."]
+[node name="CrouchRaycast_1" type="RayCast2D" parent="."]
 position = Vector2(-5, -2)
 target_position = Vector2(0, -30)
 
-[node name="CrouchRayCast2D_2" type="RayCast2D" parent="."]
+[node name="CrouchRaycast_2" type="RayCast2D" parent="."]
 position = Vector2(5, -2)
 target_position = Vector2(0, -30)
 
@@ -425,7 +425,7 @@ one_shot = true
 wait_time = 0.15
 one_shot = true
 
-[node name="RotationRayCast2D" type="RayCast2D" parent="."]
+[node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(0, -14)
 target_position = Vector2(0, 30)
 
