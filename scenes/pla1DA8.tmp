@@ -386,6 +386,9 @@ _data = {
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_cgdks")
+speed = 150
+gravity = 20
+jump_force = 500
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-1, -21)
@@ -418,18 +421,8 @@ wait_time = 0.1
 one_shot = true
 
 [node name="JumpBufferTimer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.3
 one_shot = true
-
-[node name="JumpHeightTimer" type="Timer" parent="."]
-wait_time = 0.15
-one_shot = true
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(0, -14)
-target_position = Vector2(0, 30)
-collide_with_areas = true
 
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
 [connection signal="timeout" from="JumpBufferTimer" to="." method="_on_jump_buffer_timer_timeout"]
-[connection signal="timeout" from="JumpHeightTimer" to="." method="_on_jump_height_timer_timeout"]
