@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://nchoht5013po"]
+[gd_scene load_steps=12 format=3 uid="uid://nchoht5013po"]
 
 [ext_resource type="PackedScene" uid="uid://dvbwprhgbl2c" path="res://scenes/player.tscn" id="1_t0tie"]
 [ext_resource type="PackedScene" uid="uid://dyfx56ll1gw2e" path="res://scenes/box.tscn" id="2_qbetw"]
@@ -23,6 +23,9 @@ size = Vector2(23, 2)
 [sub_resource type="CircleShape2D" id="CircleShape2D_3fxge"]
 radius = 2.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wp3xc"]
+size = Vector2(3, 6)
+
 [node name="World" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_t0tie")]
@@ -39,6 +42,20 @@ scale = Vector2(0.301, 0.33)
 mesh = SubResource("QuadMesh_f547k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2(-349.5, -33.5)
+shape = SubResource("RectangleShape2D_ay8y8")
+
+[node name="Platform6" type="StaticBody2D" parent="."]
+position = Vector2(1876, 719)
+scale = Vector2(1.72, 1)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform6"]
+modulate = Color(0.41598, 0.41598, 0.41598, 1)
+position = Vector2(-349.5, -33.5)
+scale = Vector2(0.301, 0.33)
+mesh = SubResource("QuadMesh_f547k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform6"]
 position = Vector2(-349.5, -33.5)
 shape = SubResource("RectangleShape2D_ay8y8")
 
@@ -97,20 +114,60 @@ mesh = SubResource("QuadMesh_f547k")
 position = Vector2(-349.5, -33.5)
 shape = SubResource("RectangleShape2D_ay8y8")
 
+[node name="Platform7" type="StaticBody2D" parent="."]
+position = Vector2(2114, 517)
+scale = Vector2(1.49668, 1)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform7"]
+modulate = Color(0.41598, 0.41598, 0.41598, 1)
+position = Vector2(-349.5, -33.5)
+scale = Vector2(0.301, 0.33)
+mesh = SubResource("QuadMesh_f547k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform7"]
+position = Vector2(-349.5, -33.5)
+shape = SubResource("RectangleShape2D_ay8y8")
+
+[node name="Platform8" type="StaticBody2D" parent="."]
+position = Vector2(2661, 634)
+scale = Vector2(1.49668, 1)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform8"]
+modulate = Color(0.41598, 0.41598, 0.41598, 1)
+position = Vector2(-349.5, -33.5)
+scale = Vector2(0.301, 0.33)
+mesh = SubResource("QuadMesh_f547k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform8"]
+position = Vector2(-349.5, -33.5)
+shape = SubResource("RectangleShape2D_ay8y8")
+
 [node name="Box" parent="." instance=ExtResource("2_qbetw")]
 position = Vector2(20, 80)
 
 [node name="Box2" parent="." instance=ExtResource("2_qbetw")]
-position = Vector2(-70, 196)
+position = Vector2(-58, 149)
 
 [node name="Box3" parent="." instance=ExtResource("2_qbetw")]
-position = Vector2(731, 542)
+position = Vector2(706, 594)
 
 [node name="Box4" parent="." instance=ExtResource("2_qbetw")]
-position = Vector2(1325, 505)
+position = Vector2(1325, 501)
 
 [node name="Box5" parent="." instance=ExtResource("2_qbetw")]
-position = Vector2(373, -100)
+position = Vector2(1517, 646)
+
+[node name="Box6" parent="." instance=ExtResource("2_qbetw")]
+position = Vector2(1817, 541)
+
+[node name="Box7" parent="." instance=ExtResource("2_qbetw")]
+position = Vector2(1870, 570)
+
+[node name="Box8" parent="." instance=ExtResource("2_qbetw")]
+position = Vector2(1915, 601)
+
+[node name="Box9" parent="." instance=ExtResource("2_qbetw")]
+position = Vector2(2387, 603)
 
 [node name="RigidBox" type="RigidBody2D" parent="."]
 position = Vector2(1156, 390)
@@ -150,8 +207,16 @@ shape = SubResource("CircleShape2D_3fxge")
 position = Vector2(7, 2)
 shape = SubResource("CircleShape2D_3fxge")
 
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="RigidSkateboard"]
+position = Vector2(11, -4)
+shape = SubResource("RectangleShape2D_wp3xc")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="RigidSkateboard"]
+position = Vector2(-12, -4)
+shape = SubResource("RectangleShape2D_wp3xc")
+
 [node name="RigidSkateboard2" type="RigidBody2D" parent="."]
-position = Vector2(86, 55)
+position = Vector2(188, 42)
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidSkateboard2"]
 texture = ExtResource("4_xweyh")
@@ -168,8 +233,16 @@ shape = SubResource("CircleShape2D_3fxge")
 position = Vector2(7, 2)
 shape = SubResource("CircleShape2D_3fxge")
 
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="RigidSkateboard2"]
+position = Vector2(11, -4)
+shape = SubResource("RectangleShape2D_wp3xc")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="RigidSkateboard2"]
+position = Vector2(-12, -4)
+shape = SubResource("RectangleShape2D_wp3xc")
+
 [node name="RigidSkateboard3" type="RigidBody2D" parent="."]
-position = Vector2(207, 26)
+position = Vector2(85, 58)
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidSkateboard3"]
 texture = ExtResource("4_xweyh")
@@ -185,3 +258,89 @@ shape = SubResource("CircleShape2D_3fxge")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="RigidSkateboard3"]
 position = Vector2(7, 2)
 shape = SubResource("CircleShape2D_3fxge")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="RigidSkateboard3"]
+position = Vector2(11, -4)
+shape = SubResource("RectangleShape2D_wp3xc")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="RigidSkateboard3"]
+position = Vector2(-12, -4)
+shape = SubResource("RectangleShape2D_wp3xc")
+
+[node name="RigidSkateboard4" type="RigidBody2D" parent="."]
+position = Vector2(1316, 621)
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidSkateboard4"]
+texture = ExtResource("4_xweyh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidSkateboard4"]
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_igh1e")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="RigidSkateboard4"]
+position = Vector2(-5, 2)
+shape = SubResource("CircleShape2D_3fxge")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="RigidSkateboard4"]
+position = Vector2(7, 2)
+shape = SubResource("CircleShape2D_3fxge")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="RigidSkateboard4"]
+position = Vector2(11, -4)
+shape = SubResource("RectangleShape2D_wp3xc")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="RigidSkateboard4"]
+position = Vector2(-12, -4)
+shape = SubResource("RectangleShape2D_wp3xc")
+
+[node name="RigidSkateboard5" type="RigidBody2D" parent="."]
+position = Vector2(1571, 419)
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidSkateboard5"]
+texture = ExtResource("4_xweyh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidSkateboard5"]
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_igh1e")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="RigidSkateboard5"]
+position = Vector2(-5, 2)
+shape = SubResource("CircleShape2D_3fxge")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="RigidSkateboard5"]
+position = Vector2(7, 2)
+shape = SubResource("CircleShape2D_3fxge")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="RigidSkateboard5"]
+position = Vector2(11, -4)
+shape = SubResource("RectangleShape2D_wp3xc")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="RigidSkateboard5"]
+position = Vector2(-12, -4)
+shape = SubResource("RectangleShape2D_wp3xc")
+
+[node name="RigidSkateboard6" type="RigidBody2D" parent="."]
+position = Vector2(1443, 426)
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidSkateboard6"]
+texture = ExtResource("4_xweyh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidSkateboard6"]
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_igh1e")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="RigidSkateboard6"]
+position = Vector2(-5, 2)
+shape = SubResource("CircleShape2D_3fxge")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="RigidSkateboard6"]
+position = Vector2(7, 2)
+shape = SubResource("CircleShape2D_3fxge")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="RigidSkateboard6"]
+position = Vector2(11, -4)
+shape = SubResource("RectangleShape2D_wp3xc")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="RigidSkateboard6"]
+position = Vector2(-12, -4)
+shape = SubResource("RectangleShape2D_wp3xc")

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-const JUMP_VELOCITY = -400.0
-const SPEED = 300.0
+const JUMP_VELOCITY = -300.0
+const SPEED = 270.0
 
 const PUSH_FORCE := 80.0
 const MIN_PUSH_FORCE := 30.0
@@ -22,11 +22,15 @@ var is_crouch = false
 var is_crouch_stuck = false
 var is_coyote_jump = false
 var is_jump_buffered = false
+var is_carry = false
 
 var stand_cshape = preload("res://resources/player_stand_col.tres")
 var crouch_cshape = preload("res://resources/player_crouch_col.tres")
 
 var xform: Transform2D
+
+var carry_obj = null
+var carry_name
 
 func _process(delta: float) -> void:
 	pass
@@ -69,8 +73,46 @@ func _physics_process(delta: float) -> void:
 		if collider is RigidBody2D:
 			if Input.is_action_pressed("crouch"):
 				collider.apply_central_impulse(Vector2(150,0))
-				
+			if Input.is_action_pressed("pick_up") && !is_carry:
+				carry_obj = collider
+				carry_name = carry_obj.name
+				PhysicsServer2D.body_set_state(
+					carry_obj.get_rid(),
+					PhysicsServer2D.BODY_STATE_TRANSFORM,
+					Transform2D.IDENTITY.translated(Vector2(0, 0))
+				)
+				collider.freeze = true
+				is_carry = true
+	
+	if is_carry:
+		carry_obj.position.x = position.x
+		carry_obj.position.y = position.y - 48
 		
+	if Input.is_action_just_pressed("pick_up") && carry_obj != null:
+		if  rotation_raycast.is_colliding():
+			var col = rotation_raycast.get_collider()
+			if col.name != carry_name:
+				carry_obj.freeze = false
+				is_carry = false
+				PhysicsServer2D.body_set_state(
+					carry_obj.get_rid(),
+					PhysicsServer2D.BODY_STATE_TRANSFORM,
+					Transform2D.IDENTITY.translated(Vector2(global_position.x+30, global_position.y-30))
+				)
+				carry_obj.apply_central_impulse(Vector2(150,0))
+				carry_obj = null
+		else:
+			carry_obj.freeze = false
+			is_carry = false
+			PhysicsServer2D.body_set_state(
+				carry_obj.get_rid(),
+				PhysicsServer2D.BODY_STATE_TRANSFORM,
+				Transform2D.IDENTITY.translated(Vector2(global_position.x+30, global_position.y-30))
+			)
+			carry_obj.apply_central_impulse(Vector2(150,0))
+			carry_obj = null
+		
+	
 	var last_is_on_floor = is_on_floor()
 	
 	move_and_slide()
