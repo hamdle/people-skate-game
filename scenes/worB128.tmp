@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://nchoht5013po"]
+[gd_scene load_steps=7 format=3 uid="uid://nchoht5013po"]
 
 [ext_resource type="PackedScene" uid="uid://dvbwprhgbl2c" path="res://scenes/player.tscn" id="1_t0tie"]
 [ext_resource type="PackedScene" uid="uid://dyfx56ll1gw2e" path="res://scenes/box.tscn" id="2_qbetw"]
 [ext_resource type="Texture2D" uid="uid://6qubde642y8e" path="res://icon.svg" id="3_vg7vy"]
-[ext_resource type="Texture2D" uid="uid://ctbmn73phwb7v" path="res://skateboard_1.png" id="4_xweyh"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_f547k"]
 size = Vector2(1000, 100)
@@ -11,17 +10,8 @@ size = Vector2(1000, 100)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ay8y8"]
 size = Vector2(301, 33)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_khpor"]
-size = Vector2(32, 32)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_58gd0"]
-size = Vector2(32, 32)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_igh1e"]
-size = Vector2(23, 2)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_3fxge"]
-radius = 2.0
+size = Vector2(32, 32)
 
 [node name="World" type="Node2D"]
 
@@ -107,7 +97,7 @@ position = Vector2(-70, 196)
 position = Vector2(731, 542)
 
 [node name="Box4" parent="." instance=ExtResource("2_qbetw")]
-position = Vector2(1325, 505)
+position = Vector2(263, -99)
 
 [node name="Box5" parent="." instance=ExtResource("2_qbetw")]
 position = Vector2(373, -100)
@@ -120,7 +110,7 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_vg7vy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBox"]
-shape = SubResource("RectangleShape2D_khpor")
+shape = SubResource("RectangleShape2D_igh1e")
 
 [node name="RigidBox2" type="RigidBody2D" parent="."]
 position = Vector2(1156, 435)
@@ -130,58 +120,14 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_vg7vy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBox2"]
-shape = SubResource("RectangleShape2D_58gd0")
+shape = SubResource("RectangleShape2D_igh1e")
 
-[node name="RigidSkateboard" type="RigidBody2D" parent="."]
+[node name="RigidBox3" type="RigidBody2D" parent="."]
 position = Vector2(262, 71)
 
-[node name="Sprite2D" type="Sprite2D" parent="RigidSkateboard"]
-texture = ExtResource("4_xweyh")
+[node name="Sprite2D" type="Sprite2D" parent="RigidBox3"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("3_vg7vy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidSkateboard"]
-position = Vector2(0.5, -1)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBox3"]
 shape = SubResource("RectangleShape2D_igh1e")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="RigidSkateboard"]
-position = Vector2(-5, 2)
-shape = SubResource("CircleShape2D_3fxge")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="RigidSkateboard"]
-position = Vector2(7, 2)
-shape = SubResource("CircleShape2D_3fxge")
-
-[node name="RigidSkateboard2" type="RigidBody2D" parent="."]
-position = Vector2(86, 55)
-
-[node name="Sprite2D" type="Sprite2D" parent="RigidSkateboard2"]
-texture = ExtResource("4_xweyh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidSkateboard2"]
-position = Vector2(0.5, -1)
-shape = SubResource("RectangleShape2D_igh1e")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="RigidSkateboard2"]
-position = Vector2(-5, 2)
-shape = SubResource("CircleShape2D_3fxge")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="RigidSkateboard2"]
-position = Vector2(7, 2)
-shape = SubResource("CircleShape2D_3fxge")
-
-[node name="RigidSkateboard3" type="RigidBody2D" parent="."]
-position = Vector2(207, 26)
-
-[node name="Sprite2D" type="Sprite2D" parent="RigidSkateboard3"]
-texture = ExtResource("4_xweyh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidSkateboard3"]
-position = Vector2(0.5, -1)
-shape = SubResource("RectangleShape2D_igh1e")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="RigidSkateboard3"]
-position = Vector2(-5, 2)
-shape = SubResource("CircleShape2D_3fxge")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="RigidSkateboard3"]
-position = Vector2(7, 2)
-shape = SubResource("CircleShape2D_3fxge")

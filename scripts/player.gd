@@ -64,6 +64,13 @@ func _physics_process(delta: float) -> void:
 		stand()
 		is_crouch_stuck = false
 		
+	if rotation_raycast.is_colliding():
+		var collider = rotation_raycast.get_collider()
+		if collider is RigidBody2D:
+			if Input.is_action_pressed("crouch"):
+				collider.apply_central_impulse(Vector2(150,0))
+				
+		
 	var last_is_on_floor = is_on_floor()
 	
 	move_and_slide()
