@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const JUMP_VELOCITY = -300.0
-const SPEED = 270.0
+const SPEED = 200.0
 
 const PUSH_FORCE := 80.0
 const MIN_PUSH_FORCE := 30.0
@@ -17,6 +17,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var coyote_timer = $CoyoteTimer
 @onready var jump_buffer_timer = $JumpBufferTimer
 @onready var jump_height_timer = $JumpHeightTimer
+@onready var camera = $Camera2D
 
 var is_crouch = false
 var is_crouch_stuck = false
@@ -112,6 +113,11 @@ func _physics_process(delta: float) -> void:
 			carry_obj.apply_central_impulse(Vector2(150,0))
 			carry_obj = null
 		
+	
+	if carry_obj != null:
+		camera.zoom = Vector2(0.5, 0.5)
+	else:
+		camera.zoom = Vector2(1, 1)
 	
 	var last_is_on_floor = is_on_floor()
 	

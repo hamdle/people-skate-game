@@ -46,8 +46,8 @@ position = Vector2(-349.5, -33.5)
 shape = SubResource("RectangleShape2D_ay8y8")
 
 [node name="Platform6" type="StaticBody2D" parent="."]
-position = Vector2(1876, 719)
-scale = Vector2(1.72, 1)
+position = Vector2(3803, 638)
+scale = Vector2(1.36349, 1.08571)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Platform6"]
 modulate = Color(0.41598, 0.41598, 0.41598, 1)
@@ -60,7 +60,7 @@ position = Vector2(-349.5, -33.5)
 shape = SubResource("RectangleShape2D_ay8y8")
 
 [node name="Platform2" type="StaticBody2D" parent="."]
-position = Vector2(945, 415)
+position = Vector2(887, 532)
 rotation = 0.380685
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Platform2"]
@@ -88,8 +88,8 @@ position = Vector2(-349.5, -33.5)
 shape = SubResource("RectangleShape2D_ay8y8")
 
 [node name="Platform4" type="StaticBody2D" parent="."]
-position = Vector2(1484, 485)
-rotation = -0.190079
+position = Vector2(1480, 484)
+rotation = -0.196324
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Platform4"]
 modulate = Color(0.41598, 0.41598, 0.41598, 1)
@@ -102,7 +102,8 @@ position = Vector2(-349.5, -33.5)
 shape = SubResource("RectangleShape2D_ay8y8")
 
 [node name="Platform5" type="StaticBody2D" parent="."]
-position = Vector2(1246, 665)
+position = Vector2(2907, 378)
+rotation = -0.48385
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Platform5"]
 modulate = Color(0.41598, 0.41598, 0.41598, 1)
@@ -115,8 +116,8 @@ position = Vector2(-349.5, -33.5)
 shape = SubResource("RectangleShape2D_ay8y8")
 
 [node name="Platform7" type="StaticBody2D" parent="."]
-position = Vector2(2114, 517)
-scale = Vector2(1.49668, 1)
+position = Vector2(2126, 528)
+scale = Vector2(1.2556, 1)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Platform7"]
 modulate = Color(0.41598, 0.41598, 0.41598, 1)
@@ -129,7 +130,7 @@ position = Vector2(-349.5, -33.5)
 shape = SubResource("RectangleShape2D_ay8y8")
 
 [node name="Platform8" type="StaticBody2D" parent="."]
-position = Vector2(2661, 634)
+position = Vector2(2730, 658)
 scale = Vector2(1.49668, 1)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Platform8"]
@@ -149,28 +150,28 @@ position = Vector2(20, 80)
 position = Vector2(-58, 149)
 
 [node name="Box3" parent="." instance=ExtResource("2_qbetw")]
-position = Vector2(706, 594)
+position = Vector2(957, 571)
 
 [node name="Box4" parent="." instance=ExtResource("2_qbetw")]
-position = Vector2(1325, 501)
+position = Vector2(1123, 252)
 
 [node name="Box5" parent="." instance=ExtResource("2_qbetw")]
-position = Vector2(1517, 646)
+position = Vector2(3493, 599)
 
 [node name="Box6" parent="." instance=ExtResource("2_qbetw")]
-position = Vector2(1817, 541)
+position = Vector2(1881, 544)
 
 [node name="Box7" parent="." instance=ExtResource("2_qbetw")]
-position = Vector2(1870, 570)
+position = Vector2(1923, 570)
 
 [node name="Box8" parent="." instance=ExtResource("2_qbetw")]
-position = Vector2(1915, 601)
+position = Vector2(1967, 603)
 
 [node name="Box9" parent="." instance=ExtResource("2_qbetw")]
-position = Vector2(2387, 603)
+position = Vector2(2440, 603)
 
 [node name="RigidBox" type="RigidBody2D" parent="."]
-position = Vector2(1156, 390)
+position = Vector2(186, 102)
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBox"]
 scale = Vector2(0.25, 0.25)
@@ -180,7 +181,7 @@ texture = ExtResource("3_vg7vy")
 shape = SubResource("RectangleShape2D_khpor")
 
 [node name="RigidBox2" type="RigidBody2D" parent="."]
-position = Vector2(1156, 435)
+position = Vector2(578, 163)
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidBox2"]
 scale = Vector2(0.25, 0.25)
@@ -268,7 +269,7 @@ position = Vector2(-12, -4)
 shape = SubResource("RectangleShape2D_wp3xc")
 
 [node name="RigidSkateboard4" type="RigidBody2D" parent="."]
-position = Vector2(1316, 621)
+position = Vector2(953, 472)
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidSkateboard4"]
 texture = ExtResource("4_xweyh")
@@ -294,7 +295,7 @@ position = Vector2(-12, -4)
 shape = SubResource("RectangleShape2D_wp3xc")
 
 [node name="RigidSkateboard5" type="RigidBody2D" parent="."]
-position = Vector2(1571, 419)
+position = Vector2(2381, 542)
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidSkateboard5"]
 texture = ExtResource("4_xweyh")
@@ -320,7 +321,7 @@ position = Vector2(-12, -4)
 shape = SubResource("RectangleShape2D_wp3xc")
 
 [node name="RigidSkateboard6" type="RigidBody2D" parent="."]
-position = Vector2(1443, 426)
+position = Vector2(1938, 497)
 
 [node name="Sprite2D" type="Sprite2D" parent="RigidSkateboard6"]
 texture = ExtResource("4_xweyh")
