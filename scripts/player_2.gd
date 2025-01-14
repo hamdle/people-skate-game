@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 const JUMP_VELOCITY = -300.0
-const SPEED = 200.0
+const SPEED = 400.0
 
 const PUSH_FORCE = 80.0
 const MIN_PUSH_FORCE = 30.0
@@ -36,6 +36,9 @@ var xform: Transform2D
 var carry_obj = null
 var carry_name
 
+func _init() -> void:
+	pass #camera.zoom = Vector2(0.5, 0.5)
+
 func _process(delta: float) -> void:
 	if position.y > 3000:
 		var scene = get_tree().get_current_scene()
@@ -53,12 +56,17 @@ func _physics_process(delta: float) -> void:
 		jump_height_timer.start()
 		jump()
 	
-	# if first pressed return -1, second 1, none or both 0
+	var t = 1
+	if sprite.flip_h == true:
+		t = -1
 	var h_dir = Input.get_axis('move_left', 'move_right')
 	if h_dir:
-		velocity.x = h_dir * SPEED
+		if t == 1:
+			velocity.x = t * move_toward(velocity.x, SPEED, 8)
+		elif t == -1:
+			velocity.x = max(move_toward(velocity.x, SPEED, t * 8), -(SPEED + 8) )
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, 0.5)
 	
 	if h_dir != 0:
 		switch_direction(h_dir)
@@ -136,10 +144,10 @@ func _physics_process(delta: float) -> void:
 			carry_obj = null
 		
 	
-	if carry_obj != null:
-		camera.zoom = Vector2(0.5, 0.5)
-	else:
-		camera.zoom = Vector2(1, 1)
+	#if carry_obj != null:
+		#camera.zoom = Vector2(0.5, 0.5)
+	#else:
+		#camera.zoom = Vector2(1, 1)
 	
 	var prev_is_on_floor = is_on_floor()
 	var prev_x_velocity = velocity.x

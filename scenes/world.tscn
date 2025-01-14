@@ -143,6 +143,64 @@ mesh = SubResource("QuadMesh_f547k")
 position = Vector2(-349.5, -33.5)
 shape = SubResource("RectangleShape2D_ay8y8")
 
+[node name="Platform9" type="StaticBody2D" parent="."]
+position = Vector2(3746, 625)
+scale = Vector2(1.49668, 1)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform9"]
+modulate = Color(0.41598, 0.41598, 0.41598, 1)
+position = Vector2(2.83978, -3.5)
+scale = Vector2(0.301, 0.33)
+mesh = SubResource("QuadMesh_f547k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform9"]
+position = Vector2(2.83981, -3.5)
+shape = SubResource("RectangleShape2D_ay8y8")
+
+[node name="Platform10" type="StaticBody2D" parent="."]
+position = Vector2(3976, 618)
+rotation = -0.158128
+scale = Vector2(1.49668, 1)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform10"]
+modulate = Color(0.41598, 0.41598, 0.41598, 1)
+position = Vector2(2.83978, -3.5)
+scale = Vector2(0.301, 0.33)
+mesh = SubResource("QuadMesh_f547k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform10"]
+position = Vector2(2.83981, -3.5)
+shape = SubResource("RectangleShape2D_ay8y8")
+
+[node name="Platform11" type="StaticBody2D" parent="."]
+position = Vector2(4619, 756)
+rotation = 0.21558
+scale = Vector2(1.49668, 1)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform11"]
+modulate = Color(0.41598, 0.41598, 0.41598, 1)
+position = Vector2(2.83978, -3.5)
+scale = Vector2(0.301, 0.33)
+mesh = SubResource("QuadMesh_f547k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform11"]
+position = Vector2(2.83981, -3.5)
+shape = SubResource("RectangleShape2D_ay8y8")
+
+[node name="Platform12" type="StaticBody2D" parent="."]
+position = Vector2(4993, 805)
+scale = Vector2(1.49668, 1)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform12"]
+modulate = Color(0.41598, 0.41598, 0.41598, 1)
+position = Vector2(2.83978, -3.5)
+scale = Vector2(0.301, 0.33)
+mesh = SubResource("QuadMesh_f547k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform12"]
+position = Vector2(2.83981, -3.5)
+shape = SubResource("RectangleShape2D_ay8y8")
+
 [node name="Box" parent="." instance=ExtResource("2_qbetw")]
 position = Vector2(20, 80)
 
@@ -169,6 +227,9 @@ position = Vector2(1967, 603)
 
 [node name="Box9" parent="." instance=ExtResource("2_qbetw")]
 position = Vector2(2440, 603)
+
+[node name="Box10" parent="." instance=ExtResource("2_qbetw")]
+position = Vector2(5249, 793)
 
 [node name="RigidBox" type="RigidBody2D" parent="."]
 position = Vector2(186, 102)
