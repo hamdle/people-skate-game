@@ -3,8 +3,10 @@ extends CharacterBody2D
 const JUMP_VELOCITY = -300.0
 const SPEED = 200.0
 
-const PUSH_FORCE := 80.0
-const MIN_PUSH_FORCE := 30.0
+const PUSH_FORCE = 80.0
+const MIN_PUSH_FORCE = 30.0
+
+const THROW_IMPULSE = 150
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -73,7 +75,7 @@ func _physics_process(delta: float) -> void:
 		var collider = rotation_raycast.get_collider()
 		if collider is RigidBody2D:
 			if Input.is_action_pressed("crouch"):
-				collider.apply_central_impulse(Vector2(150,0))
+				collider.apply_central_impulse(Vector2(50, 0))
 			if Input.is_action_pressed("pick_up") && !is_carry:
 				carry_obj = collider
 				carry_name = carry_obj.name
@@ -90,27 +92,37 @@ func _physics_process(delta: float) -> void:
 		carry_obj.position.y = position.y - 48
 		
 	if Input.is_action_just_pressed("pick_up") && carry_obj != null:
+		var x = 30
+		var y = 30
+		var d = 1
+		if sprite.flip_h == true:
+			d = -1
+					
 		if  rotation_raycast.is_colliding():
 			var col = rotation_raycast.get_collider()
 			if col.name != carry_name:
 				carry_obj.freeze = false
 				is_carry = false
+				
 				PhysicsServer2D.body_set_state(
 					carry_obj.get_rid(),
 					PhysicsServer2D.BODY_STATE_TRANSFORM,
-					Transform2D.IDENTITY.translated(Vector2(global_position.x+30, global_position.y-30))
+					Transform2D.IDENTITY.translated(Vector2(global_position.x + x * d, global_position.y - y))
 				)
-				carry_obj.apply_central_impulse(Vector2(150,0))
+				
+				carry_obj.apply_central_impulse(Vector2(THROW_IMPULSE * d, 0))
 				carry_obj = null
 		else:
 			carry_obj.freeze = false
 			is_carry = false
+			
 			PhysicsServer2D.body_set_state(
 				carry_obj.get_rid(),
 				PhysicsServer2D.BODY_STATE_TRANSFORM,
-				Transform2D.IDENTITY.translated(Vector2(global_position.x+30, global_position.y-30))
+				Transform2D.IDENTITY.translated(Vector2(global_position.x + x * d, global_position.y - y))
 			)
-			carry_obj.apply_central_impulse(Vector2(150,0))
+			
+			carry_obj.apply_central_impulse(Vector2(THROW_IMPULSE * d, 0))
 			carry_obj = null
 		
 	
