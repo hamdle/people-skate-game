@@ -6,6 +6,7 @@ const SPEED = 200.0
 const PUSH_FORCE = 80.0
 const MIN_PUSH_FORCE = 30.0
 
+const SKATE_IMPULSE = 50
 const THROW_IMPULSE = 150
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -36,7 +37,11 @@ var carry_obj = null
 var carry_name
 
 func _process(delta: float) -> void:
-	pass
+	if position.y > 3000:
+		var scene = get_tree().get_current_scene()
+		var file = scene.get_scene_file_path()
+		get_tree().change_scene_to_file(file)
+		
 	
 func _physics_process(delta: float) -> void:
 	if !is_on_floor(): # && is_coyote_jump == false:
@@ -75,7 +80,10 @@ func _physics_process(delta: float) -> void:
 		var collider = rotation_raycast.get_collider()
 		if collider is RigidBody2D:
 			if Input.is_action_pressed("crouch"):
-				collider.apply_central_impulse(Vector2(50, 0))
+				var factor = 1
+				if sprite.flip_h == true:
+					factor = -1
+				collider.apply_central_impulse(Vector2((abs(rad_to_deg(rotation)) + SKATE_IMPULSE) * factor, 0))
 			if Input.is_action_pressed("pick_up") && !is_carry:
 				carry_obj = collider
 				carry_name = carry_obj.name
@@ -131,8 +139,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		camera.zoom = Vector2(1, 1)
 	
-	var last_is_on_floor = is_on_floor()
-	
+	var prev_is_on_floor = is_on_floor()
+	var prev_x_velocity = velocity.x
 	move_and_slide()
 	
 	# Character rotation
@@ -154,12 +162,12 @@ func _physics_process(delta: float) -> void:
 			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
 	
 	# Started to fall
-	if last_is_on_floor && !is_on_floor() && velocity.y >= 0:
+	if prev_is_on_floor && !is_on_floor() && velocity.y >= 0:
 		is_coyote_jump = true
 		coyote_timer.start()
 	
 	# Touched ground
-	if !last_is_on_floor && is_on_floor():
+	if !prev_is_on_floor && is_on_floor():
 		if is_jump_buffered:
 			is_jump_buffered = false
 			print('buffered jump')
